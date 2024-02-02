@@ -1,67 +1,35 @@
-# The builder stage
-# This stage is responsible for:
-# 1. Installing the necessary dependencies
-# 2. Building the NuxtJS application
-# 3. Bundling the necessary external packages into a standalone build
-FROM node:lts-alpine as builder
-# Use Docker Buildkit for faster build times (https://docs.docker.com/build/buildkit/)
-ENV DOCKER_BUILDKIT=1
+# Build Stage
+FROM node:lts-alpine AS builder
 
-# Create a place in the container to process the NuxtJS application in
+# Set working directory
 WORKDIR /app
-# Copy all the files (excluding those defined in the .dockerignore file)
+
+# Copy package.json and package-lock.json (if available)
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy project files into the docker image
 COPY . .
 
-# Build the NuxtJS application, including devDependencies and create a production build
-RUN npm ci && \
-npx nuxi build
+# Build the application for production
+RUN npm run build
 
-# Build the NuxtJS application in production mode
-RUN rm -rf node_modules && \
-npm i --ignore-scripts --omit=dev
+# Production Stage
+FROM node:lts-alpine AS production
 
-# Prune the libraries
-# RUN find libs -mindepth 2 -maxdepth 2 -name dist -o -name package.json -prune -o -exec rm -rf {} +
-
-# The runner stage
-# This is the final image that will be used when running the Docker container
-# It's responsible for:
-# 1. Copying the necessary custom runtime files to the container
-# 2. Copying the NuxtJS configuration
-# 3. Copying the entire NuxtJS application (the .nuxt, .output and static folders)
-# 4. Setting container variables
-# 5. Defining the start-up command
-FROM node:lts-alpine as runner
-# Since this is the final image, we want to build in production mode
-ENV NODE_ENV=PRODUCTION
-
-# Create a separate folder for the application to live in
+# Set working directory
 WORKDIR /app
 
-# Copy libs and prune the source
-COPY --from=builder /app/libs ./libs
+# Set environment variable
+ENV NODE_ENV=production
 
-# Copy the NPM modules
-COPY --from=builder /app/node_modules ./node_modules
-
-# Copy the custom runtime files from the builder
-COPY --from=builder /app/modules ./modules
-COPY --from=builder /app/middleware ./middleware
-
-# Copy the NuxtJS configuration for start-up and runtime configuration settings from the builder
-COPY --from=builder /app/nuxt.config.ts ./nuxt.config.ts
-
-# Copy the entire NuxtJS application from the builder
-COPY --from=builder /app/.nuxt ./.nuxt
+# Copy built assets from the builder stage
 COPY --from=builder /app/.output ./.output
-COPY --from=builder /app/static ./static
 
-# Expose port 3000 for the docker containers
-EXPOSE 3009
+# Install only production dependencies
+RUN npm install --production --ignore-scripts --omit=dev
 
-# Set NuxtJS system variables so the application can be reached on your network
-ENV NUXT_HOST=0.0.0.0
-ENV NUXT_PORT=3009
-
-# Start the NuxtJS application through a Node CLI command to launch and serve the built application
+# Define the command to run the application
 CMD [ "node", "./.output/server/index.mjs" ]
