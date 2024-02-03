@@ -29,7 +29,7 @@ ENV NODE_ENV=production
 COPY --from=builder /app/.output ./.output
 
 # Install only production dependencies
-RUN npm install --production --ignore-scripts --omit=dev
+RUN npm install --ignore-scripts --omit=dev
 
 # Define the command to run the application
 CMD [ "node", "./.output/server/index.mjs" ]
