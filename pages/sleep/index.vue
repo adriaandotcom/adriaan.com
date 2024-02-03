@@ -112,7 +112,7 @@ useSeoMeta({
   ogTitle: title,
   description,
   ogDescription: description,
-  ogImage: "https://example.com/image.png",
+  // ogImage: "https://example.com/image.png",
   twitterCard: "summary_large_image",
 });
 </script>

@@ -28,6 +28,23 @@
 import StartHere from "~/components/StartHere";
 import PolyphasicSleep from "~/components/sleep/PolyphasicSleep";
 
-const router = useRouter();
-const pages = router.getRoutes().filter((page) => page.path !== "/");
+// const router = useRouter();
+// const pages = router.getRoutes().filter((page) => page.path !== "/");
+
+const title = "Adriaan.com";
+const description =
+  "I had a chance to buy this domain name. Now I need to live up to it.";
+
+definePageMeta({
+  title: "Adriaan.com",
+});
+
+useSeoMeta({
+  title,
+  ogTitle: title,
+  description,
+  ogDescription: description,
+  // ogImage: "https://example.com/image.png",
+  twitterCard: "summary_large_image",
+});
 </script>
