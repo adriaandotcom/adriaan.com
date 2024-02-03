@@ -33,12 +33,12 @@ import PolyphasicSleep from "~/components/sleep/PolyphasicSleep";
 // const router = useRouter();
 // const pages = router.getRoutes().filter((page) => page.path !== "/");
 
-const title = "Adriaan.com";
+const title = "@adriaandotcom";
 const description =
   "I had a chance to buy this domain name. Now I need to live up to it.";
 
 definePageMeta({
-  title: "Adriaan.com",
+  title: "@adriaandotcom",
 });
 
 useSeoMeta({

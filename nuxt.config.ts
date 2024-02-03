@@ -33,7 +33,10 @@ export default defineNuxtConfig({
         { name: "msapplication-TileColor", content: "#5686f7" },
         { name: "theme-color", content: "#ffffff" },
       ],
-      script: [{ src: "/data.js", async: true }],
+      script:
+        process.env.NODE_ENV === "production"
+          ? [{ src: "/data.js", async: true }]
+          : [],
     },
   },
 });

@@ -98,12 +98,12 @@ import PolyphasicSleep from "~/components/sleep/PolyphasicSleep.vue";
 import Woman from "~/components/sleep/Woman.vue";
 import Phases from "~/components/sleep/Phases.vue";
 
-const title = "First blog";
+const title = "Why I'm experimenting with Polyphasic Sleep";
 const description =
   "I'm about to embark on an intriguing and somewhat unconventional adventure, one that delves into the realms of sleep and productivity. For the next month, I'm going to experiment with a Polyphasic Sleep schedule, specifically a pattern of two 4-hour sleep sessions. My sleep windows are set from 3 AM to 7 AM and then again from 2 PM to 6 PM. I'm excited to share this journey with you, starting with this blog post where I'll explain why I've decided to take this leap.";
 
 definePageMeta({
-  title: "First blog",
+  title: "Why I'm experimenting with Polyphasic Sleep",
   layout: "sleep",
 });
 
