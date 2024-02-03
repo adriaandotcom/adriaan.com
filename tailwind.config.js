@@ -4,6 +4,10 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 export default {
   content: [],
 
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+
   theme: {
     extend: {
       strokeWidth: {
@@ -14,6 +18,8 @@ export default {
         6: "6px",
         7: "7px",
         8: "8px",
+        9: "9px",
+        10: "10px",
       },
     },
 
@@ -31,5 +37,6 @@ export default {
       ],
     },
   },
+
   plugins: [require("@tailwindcss/typography")],
 };
