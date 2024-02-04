@@ -1,7 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss"],
+  site: {
+    url: "https://www.adriaan.com",
+  },
+  modules: ["@nuxtjs/tailwindcss", "nuxt-og-image"],
   app: {
     head: {
       charset: "utf-8",
@@ -38,5 +41,14 @@ export default defineNuxtConfig({
           ? [{ src: "/data.js", async: true }]
           : [],
     },
+  },
+  ogImage: {
+    fonts: [
+      {
+        name: "Georgia",
+        weight: 500,
+        path: "/fonts/Georgia.ttf",
+      },
+    ],
   },
 });

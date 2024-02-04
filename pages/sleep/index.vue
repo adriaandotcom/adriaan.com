@@ -1,10 +1,13 @@
 <template>
   <div>
-    <PolyphasicSleep class="h-32" />
-
+    <WhyPolyphasicSleep
+      class="h-32 stroke-3"
+      aria-hidden="true"
+      aria-describedby="title"
+    />
     <h1 id="title" class="sr-only">Polyphasic Sleep</h1>
 
-    <p>
+    <p class="!mt-4">
       I&#39;m about to embark on an intriguing and somewhat unconventional
       adventure, one that delves into the realms of sleep and productivity. For
       the next month, I&#39;m going to experiment with a Polyphasic Sleep
@@ -13,9 +16,7 @@
       I&#39;m excited to share this journey with you, starting with this blog
       post where I&#39;ll explain why I&#39;ve decided to take this leap.
     </p>
-    <h2 id="the-why-behind-my-polyphasic-sleep-experiment">
-      The Why Behind My Polyphasic Sleep Experiment
-    </h2>
+    <h2>The Why Behind My Polyphasic Sleep Experiment</h2>
     <p>
       The concept of Polyphasic Sleep has always fascinated me. Renowned figures
       like Leonardo da Vinci and Nikola Tesla have been said to follow similar
@@ -25,11 +26,9 @@
       creativity.
     </p>
 
-    <Phases class="mt-10 -ml-[10%] w-[120%] stroke-2 max-w-none" />
+    <Phases class="mt-10 md:-ml-[10%] md:w-[120%] stroke-2 max-w-none" />
 
-    <h3 id="1-enhanced-productivity-and-time-management-">
-      1. <strong>Enhanced Productivity and Time Management</strong>
-    </h3>
+    <h3>1. <strong>Enhanced Productivity and Time Management</strong></h3>
 
     <p>
       As a developer and entrepreneur, I&#39;m constantly juggling multiple
@@ -38,9 +37,8 @@
       splitting my sleep into two segments, might offer more waking hours that
       align with my most productive times.
     </p>
-    <h3 id="2-personal-growth-and-exploration-">
-      2. <strong>Personal Growth and Exploration</strong>
-    </h3>
+
+    <h3>2. <strong>Personal Growth and Exploration</strong></h3>
     <p>
       I&#39;m a firm believer in self-experimentation as a way to personal
       growth. This experiment is also a testament to my philosophy of not always
@@ -48,17 +46,15 @@
       and capabilities of my body and mind.
     </p>
 
-    <Woman class="float-right stroke-4 max-w-full w-40 md:w-72 m-4 md:-mr-32" />
+    <Woman class="float-right stroke-3 max-w-full w-40 md:w-72 m-4 md:-mr-32" />
 
-    <h3 id="3-lifestyle-integration-">
-      3. <strong>Lifestyle Integration</strong>
-    </h3>
+    <h3>3. <strong>Lifestyle Integration</strong></h3>
     <p>
       As someone who loves to travel and sometimes lives as a digital nomad,
       adapting to different time zones can be challenging. I&#39;m curious to
       see if Polyphasic sleeping could make these transitions smoother.
     </p>
-    <h2 id="the-plan">The Plan</h2>
+    <h2>The Plan</h2>
     <p>
       I&#39;ve meticulously planned this experiment to ensure it doesn&#39;t
       hamper my health or my professional commitments. I&#39;ll be closely
@@ -66,14 +62,17 @@
       enthusiast, I&#39;ll also use various apps and gadgets to track my sleep
       quality and patterns.
     </p>
-    <h2 id="expectations-vs-reality">Expectations vs. Reality</h2>
+
+    <Clock class="mt-10 w-32 -ml-10 mr-4 float-left stroke-2 max-w-none" />
+
+    <h2>Expectations vs. Reality</h2>
     <p>
       I enter this experiment with an open mind. While I&#39;m hopeful about the
       potential benefits, I&#39;m also prepared for the possibility that this
       might not be suitable for me. And that&#39;s okay. The primary goal here
       is to learn and explore.
     </p>
-    <h2 id="stay-tuned-">Stay Tuned!</h2>
+    <h2>Stay Tuned!</h2>
     <p>
       This is just the beginning. I&#39;ll be documenting my journey through
       regular blog updates, sharing my experiences, challenges, and any
@@ -85,11 +84,6 @@
       To all my fellow entrepreneurs, developers, and dreamers out there –
       let&#39;s keep pushing the boundaries, one experiment at a time!
     </p>
-    <p>
-      Signing off for now,<br />
-      Adriaan
-      <a href="https://twitter.com/adriaandotcom">@adriaandotcom on X</a>
-    </p>
   </div>
 </template>
 
@@ -97,10 +91,16 @@
 import PolyphasicSleep from "~/components/sleep/PolyphasicSleep.vue";
 import Woman from "~/components/sleep/Woman.vue";
 import Phases from "~/components/sleep/Phases.vue";
+import WhyPolyphasicSleep from "~/components/sleep/WhyPolyphasicSleep.vue";
+import Clock from "~/components/sleep/Clock.vue";
 
 const title = "Why I'm experimenting with Polyphasic Sleep";
 const description =
   "I'm about to embark on an intriguing and somewhat unconventional adventure, one that delves into the realms of sleep and productivity. For the next month, I'm going to experiment with a Polyphasic Sleep schedule, specifically a pattern of two 4-hour sleep sessions. My sleep windows are set from 3 AM to 7 AM and then again from 2 PM to 6 PM. I'm excited to share this journey with you, starting with this blog post where I'll explain why I've decided to take this leap.";
+
+defineOgImageComponent("BlogPost", {
+  description: "Let's explain why I'm experimenting with Polyphasic Sleep.",
+});
 
 definePageMeta({
   title: "Why I'm experimenting with Polyphasic Sleep",

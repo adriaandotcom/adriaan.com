@@ -1,8 +1,24 @@
 <template>
   <div class="blog">
     <slot />
+
+    <Cheers class="h-24 stroke-3 stroke-slate-800 dark:stroke-white" />
+
+    <NuxtLink
+      to="https://x.com/intent/user?screen_name=adriaandotcom"
+      target="_blank"
+      class="mt-5 block group"
+    >
+      <XComHandle class="w-56 stroke-3" />
+    </NuxtLink>
   </div>
 </template>
+
+<script setup>
+import Cheers from "~/components/Cheers.vue";
+
+defineOgImageComponent("BlogPost");
+</script>
 
 <style lang="postcss">
 .blog {
