@@ -151,6 +151,18 @@
       family member's place. Then again, they probably know me well enough to
       just laugh it off.
     </p>
+    <p>
+      <a
+        href="https://twitter.com/bjeaurn/status/1754267598777127012"
+        target="_blank"
+        >Bjorn on X</a
+      >
+      asked me for the worst effect I've noticed so far. For now, it's the time
+      needed to start being productive after social time early in the evening.
+      After a large meal and when others go in chill mode, you need to up your
+      game and go to the office. What did really help was having an espresso or
+      two no later than 4 hours before bed time.
+    </p>
 
     <h3 id="advantages-so-far">Advantages so far</h3>
     <p>
@@ -176,10 +188,10 @@ import ScooterVsBike from "~/components/sleep/ScooterVsBike.vue";
 
 const title = "Why I'm experimenting with Polyphasic Sleep";
 const description =
-  "I'm about to embark on an intriguing and somewhat unconventional adventure, one that delves into the realms of sleep and productivity. For the next month, I'm going to experiment with a Polyphasic Sleep schedule, specifically a pattern of two 4-hour sleep sessions. My sleep windows are set from 3 AM to 7 AM and then again from 2 PM to 6 PM. I'm excited to share this journey with you, starting with this blog post where I'll explain why I've decided to take this leap.";
+  "As a developer, there is a huge difference between being fully productive and just somewhat productive. That's why I'm testing polyphasic sleep for one month.";
 
 defineOgImageComponent("BlogPost", {
-  description: "Let's explain why I'm experimenting with Polyphasic Sleep.",
+  description: "Let's explain why I'm experimenting with polyphasic sleep.",
 });
 
 definePageMeta({
