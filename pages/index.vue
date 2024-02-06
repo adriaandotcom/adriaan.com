@@ -2,7 +2,7 @@
   <div>
     <div class="max-w-lg mx-auto px-4 mt-24 mb-10 flex flex-col">
       <NuxtLink
-        to="/sleep"
+        to="/sleep/why-polyphasic-sleep"
         class="group flex flex-col p-6 sm:p-8 items-start border-2 dark:border-transparent rounded-bl-3xl bg-[#f9f9f9] dark:bg-[#353535]"
       >
         <PolyphasicSleep class="h-24 stroke-5 group-hover:stroke-7" />

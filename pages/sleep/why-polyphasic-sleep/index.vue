@@ -1,11 +1,11 @@
 <template>
   <div>
     <WhyPolyphasicSleep
-      class="h-32 stroke-3"
+      class="h-auto w-[500px] stroke-3"
       aria-hidden="true"
       aria-describedby="title"
     />
-    <h1 id="title" class="sr-only">Polyphasic Sleep</h1>
+    <h1 id="title" class="sr-only">Why polyphasic sleep?</h1>
 
     <p>
       Boosting productivity is a constant challenge for me. As a developer, the
@@ -106,7 +106,7 @@
       really curious to see how this goes over the month.
     </p>
 
-    <Clock class="mt-10 w-32 -mr-10 ml-4 float-right stroke-2 max-w-none" />
+    <Clock class="w-32 md:-mr-10 ml-4 float-right stroke-2 max-w-none" />
 
     <p>
       I&#39;ve never been good at napping. It just doesn&#39;t work for me—I end
@@ -138,8 +138,6 @@
 </template>
 
 <script setup>
-import PolyphasicSleep from "~/components/sleep/PolyphasicSleep.vue";
-import Woman from "~/components/sleep/Woman.vue";
 import Phases from "~/components/sleep/Phases.vue";
 import WhyPolyphasicSleep from "~/components/sleep/WhyPolyphasicSleep.vue";
 import Clock from "~/components/sleep/Clock.vue";

@@ -23,7 +23,7 @@ defineOgImageComponent("BlogPost");
 <style lang="postcss">
 .blog {
   /* general */
-  @apply max-w-xl mx-auto px-4 my-2 md:my-10 prose prose-lg dark:prose-invert;
+  @apply max-w-xl mx-auto px-4 my-4 md:my-10 prose prose-lg dark:prose-invert;
 
   /* prose p */
   @apply prose-p:text-slate-600 dark:prose-p:text-[#f2f2f0] prose-p:leading-loose prose-p:text-lg prose-p:font-body dark:prose-p:font-body
