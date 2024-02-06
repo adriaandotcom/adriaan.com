@@ -6,7 +6,7 @@
 
 <style lang="postcss">
 svg {
-  @apply stroke-[#0d1bf0] dark:stroke-[#5686f7] fill-none max-w-full stroke-3;
+  @apply stroke-primary-light dark:stroke-primary-dark fill-none max-w-full stroke-3;
 
   stroke-linecap: round;
   stroke-linejoin: round;

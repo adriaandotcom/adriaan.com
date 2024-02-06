@@ -7,8 +7,9 @@
       >
         <PolyphasicSleep class="h-24 stroke-5 group-hover:stroke-7" />
         <p class="mt-2">
-          Doing experiments to find the optimal productivity by changing
-          sleeping schedules.
+          As a developer, the difference between being fully productive and just
+          somewhat productive is like comparing racing on a bicycle to moving
+          along with a kick scooter.
         </p>
         <p
           class="self-end mt-6 transition-transform -translate-x-1 group-hover:translate-x-1"

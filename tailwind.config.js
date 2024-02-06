@@ -21,6 +21,13 @@ export default {
         9: "9px",
         10: "10px",
       },
+      colors: {
+        primary: {
+          light: "#0d1bf0",
+          DEFAULT: "#0d1bf0",
+          dark: "#5686f7",
+        },
+      },
     },
 
     fontFamily: {
