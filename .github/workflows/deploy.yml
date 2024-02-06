@@ -4,6 +4,10 @@ concurrency:
   group: production
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  packages: write
+
 on:
   push:
     branches:
@@ -19,8 +23,6 @@ jobs:
     steps:
       - name: Check Out Repo
         uses: actions/checkout@v4
-        with:
-          persist-credentials: false
 
       - name: Use Node.js
         uses: actions/setup-node@v4
