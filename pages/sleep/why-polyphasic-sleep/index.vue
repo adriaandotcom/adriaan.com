@@ -153,7 +153,7 @@
     </p>
     <p>
       <a
-        href="https://twitter.com/bjeaurn/status/1754267598777127012"
+        href="https://x.com/bjeaurn/status/1754267598777127012"
         target="_blank"
         >Bjorn on X</a
       >
