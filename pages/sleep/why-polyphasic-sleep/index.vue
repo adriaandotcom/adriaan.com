@@ -8,11 +8,11 @@
     <h1 id="title" class="sr-only">Why polyphasic sleep?</h1>
 
     <p>
-      Boosting productivity is a constant challenge for me. As a developer, the
-      difference between being fully productive and just somewhat productive is
-      like comparing racing on a bicycle to moving along with a kick scooter.
-      That's how I got interested in polyphasic sleep and going to do my own
-      schedule for one month.
+      Boosting productivity is always my goal. I'm a curious person, especially
+      as a software developer, and I love experimenting. Being fully productive
+      is like flying in a rocket, while just getting by is more like floating in
+      a sailboat. This big difference is a good reason for me to try out a
+      special sleep schedule for a month: polyphasic sleep.
     </p>
 
     <ScooterVsBike class="mt-6 md:-ml-[10%] md:w-[120%] stroke-3 max-w-none" />
@@ -204,7 +204,15 @@ useSeoMeta({
   ogTitle: title,
   description,
   ogDescription: description,
-  // ogImage: "https://example.com/image.png",
   twitterCard: "summary_large_image",
 });
+
+useSchemaOrg([
+  defineArticle({
+    // name and description can usually be inferred
+    // image: '/photos/16x9/photo.jpg',
+    datePublished: new Date(2024, 2, 6).toISOString(),
+    dateModified: new Date(2024, 3, 2).toISOString(),
+  }),
+]);
 </script>

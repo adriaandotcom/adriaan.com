@@ -3,8 +3,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   site: {
     url: "https://www.adriaan.com",
+    name: "adriaan.com",
   },
-  modules: ["@nuxtjs/tailwindcss", "nuxt-og-image"],
+  modules: ["@nuxtjs/tailwindcss", "nuxt-og-image", "nuxt-schema-org"],
   app: {
     head: {
       charset: "utf-8",
