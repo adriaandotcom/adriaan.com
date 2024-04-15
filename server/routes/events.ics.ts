@@ -57,6 +57,8 @@ export default defineEventHandler(async (event) => {
       description: description,
       location,
       productId,
+      url: "https://www.adriaan.com",
+      calName: "Adriaan's Events",
     });
   }
 
