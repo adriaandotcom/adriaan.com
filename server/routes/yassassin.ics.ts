@@ -32,7 +32,7 @@ export default defineEventHandler(async (event) => {
     end: [2024, 9, 1, 12, 0] as [number, number, number, number, number],
     title: "Yassassin Ouwe Pullen weekend 2024",
     description:
-      "Dit is het Ouwe pullen weekend wat eindelijk geplant staat. Om te voorkomen dat we elk jaar onduidelijkheid hebben over de datum, vanaf volgend jaar is het op de 4e vrijdag van mei. En het is okay, je mag een jaartje mislopen. En de verjaardag van je moeder is niet elk jaar even belangrijk.\n\nXusje.",
+      "Dit is het Ouwe pullen weekend wat eindelijk geplant staat.\n\nOm te voorkomen dat we elk jaar onduidelijkheid hebben over de datum, vanaf volgend jaar is het op de 4e vrijdag van mei.\n\nEn het is okay, je mag een jaartje mislopen. En de verjaardag van je moeder is niet elk jaar even belangrijk.\n\nXusje.",
     alarms,
   });
 
@@ -44,8 +44,8 @@ export default defineEventHandler(async (event) => {
     end: [2025, 5, 25, 12, 0] as [number, number, number, number, number],
     title: "Yassassin Ouwe Pullen weekend",
     description:
-      "Dit is het Ouwe pullen weekend wat elk jaar op de 4e vrijdag van de maand mei staat gepland. Om te voorkomen dat we elk jaar onduidelijkheid hebben over de datum. En het is okay, je mag een jaartje mislopen. En de verjaardag van je moeder is niet elk jaar even belangrijk.\n\nXusje.",
-    recurrenceRule: "FREQ=MONTHLY;INTERVAL=12;BYMONTH=5;BYDAY=4FR",
+      "Dit is het Ouwe pullen weekend wat elk jaar op de 4e vrijdag van de maand mei staat gepland.\n\nOm te voorkomen dat we elk jaar onduidelijkheid hebben over de datum.\n\nEn het is okay, je mag een jaartje mislopen. En de verjaardag van je moeder is niet elk jaar even belangrijk.\n\nXusje.",
+    recurrenceRule: "FREQ=YEARLY;BYSETPOS=4;BYDAY=FR;BYMONTH=5",
     alarms,
   });
 
@@ -61,7 +61,7 @@ export default defineEventHandler(async (event) => {
   event.node.res.setHeader("Content-Type", "text/calendar");
   event.node.res.setHeader(
     "Content-Disposition",
-    `attachment; filename="${date}-yassassin-ouwe-pullen.ics"`
+    `attachment; filename="${date}-yassassin.ics"`
   );
 
   return value;
