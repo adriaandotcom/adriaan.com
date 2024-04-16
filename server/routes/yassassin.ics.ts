@@ -1,6 +1,18 @@
 import { defineEventHandler } from "h3";
 import { format } from "date-fns";
+import { fromZonedTime } from "date-fns-tz";
 import { Alarm, createEvents } from "ics";
+
+const generateDate = (text: string) => {
+  const date = fromZonedTime(text, "Europe/Amsterdam");
+  return [
+    date.getFullYear(), // Year
+    date.getMonth(), // Month (getMonth returns 0-11, so add 1 to make it 1-12)
+    date.getDate(), // Day
+    date.getHours(), // Hour
+    date.getMinutes(), // Minute
+  ] as [number, number, number, number, number];
+};
 
 const alarms: Alarm[] = [
   {
@@ -13,11 +25,6 @@ const alarms: Alarm[] = [
     description: "Nog 1 maand tot het Ouwe Pullen weekend",
     trigger: { weeks: 4, days: 5, before: true },
   },
-  {
-    action: "display",
-    description: "Nog 1 week tot het Ouwe Pullen weekend",
-    trigger: { days: 5, before: true },
-  },
 ];
 
 export default defineEventHandler(async (event) => {
@@ -27,8 +34,8 @@ export default defineEventHandler(async (event) => {
 
   // Add event "Yassassin Reünistenborrel" on 14 june 2024
   eventObjects.push({
-    start: [2024, 6, 14, 18, 0] as [number, number, number, number, number],
-    end: [2024, 6, 14, 23, 59] as [number, number, number, number, number],
+    start: generateDate("2024-06-14 18:00:00"),
+    end: generateDate("2024-06-15 03:00:00"),
     title: "Yassassin Reünistenborrel",
     description:
       "Op 14 juni 2024 is het weer tijd voor de jaarlijkse reünistenborrel van Yassassin.\n\nXusje.",
@@ -36,8 +43,8 @@ export default defineEventHandler(async (event) => {
 
   // Specific event for this year
   eventObjects.push({
-    start: [2024, 8, 30, 15, 0] as [number, number, number, number, number],
-    end: [2024, 9, 1, 12, 0] as [number, number, number, number, number],
+    start: generateDate("2024-08-30 15:00:00"),
+    end: generateDate("2024-09-01 12:00:00"),
     title: "Yassassin Ouwe Pullen weekend 2024",
     description:
       "Dit is het Ouwe pullen weekend wat eindelijk geplant staat.\n\nOm te voorkomen dat we elk jaar onduidelijkheid hebben over de datum, vanaf volgend jaar is het op de 4e vrijdag van mei.\n\nEn het is okay, je mag een jaartje mislopen. En de verjaardag van je moeder is niet elk jaar even belangrijk.\n\nXusje.",
@@ -46,8 +53,8 @@ export default defineEventHandler(async (event) => {
 
   // Recurring event details
   eventObjects.push({
-    start: [2025, 5, 23, 15, 0] as [number, number, number, number, number],
-    end: [2025, 5, 25, 12, 0] as [number, number, number, number, number],
+    start: generateDate("2025-05-23 15:00:00"),
+    end: generateDate("2025-05-25 12:00:00"),
     title: "Yassassin Ouwe Pullen weekend",
     description:
       "Dit is het Ouwe pullen weekend wat elk jaar op de 4e vrijdag van de maand mei staat gepland.\n\nOm te voorkomen dat we elk jaar onduidelijkheid hebben over de datum.\n\nEn het is okay, je mag een jaartje mislopen. En de verjaardag van je moeder is niet elk jaar even belangrijk.\n\nXusje.",
