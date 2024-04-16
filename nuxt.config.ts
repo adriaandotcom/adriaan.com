@@ -55,5 +55,8 @@ export default defineNuxtConfig({
   routeRules: {
     "/": { prerender: true },
     "/**": { prerender: true },
+    "/yassassin-ouwe-pullen.ics": {
+      redirect: { to: "/yassassin.ics", statusCode: 301 },
+    },
   },
 });
