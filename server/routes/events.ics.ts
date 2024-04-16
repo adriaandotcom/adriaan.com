@@ -1,6 +1,7 @@
 import { defineEventHandler } from "h3";
 import { format, addDays } from "date-fns";
 import { createEvents } from "ics";
+import { generateDate } from "~/utils/dates";
 
 export default defineEventHandler(async (event) => {
   const getNextSaturday = (date: Date) => {
@@ -39,20 +40,20 @@ export default defineEventHandler(async (event) => {
         : "Curaçaostraat 35 H, 1058 BL, Amsterdam";
 
     eventObjects.push({
-      start: [
+      start: generateDate([
         eventDate.getFullYear(),
         eventDate.getMonth() + 1,
         eventDate.getDate(),
         16,
         0,
-      ] as [number, number, number, number, number],
-      end: [
+      ]),
+      end: generateDate([
         eventDate.getFullYear(),
         eventDate.getMonth() + 1,
         eventDate.getDate(),
         23,
         59,
-      ] as [number, number, number, number, number],
+      ]),
       title: `Adriaan's BBQ ${year}`,
       description: description,
       location,

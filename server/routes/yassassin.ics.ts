@@ -1,18 +1,7 @@
 import { defineEventHandler } from "h3";
 import { format } from "date-fns";
-import { fromZonedTime } from "date-fns-tz";
 import { Alarm, createEvents } from "ics";
-
-const generateDate = (text: string) => {
-  const date = fromZonedTime(text, "Europe/Amsterdam");
-  return [
-    date.getFullYear(), // Year
-    date.getMonth() + 1, // Month (getMonth returns 0-11, so add 1 to make it 1-12)
-    date.getDate(), // Day
-    date.getHours(), // Hour
-    date.getMinutes(), // Minute
-  ] as [number, number, number, number, number];
-};
+import { generateDate } from "~/utils/dates";
 
 const alarms: Alarm[] = [
   {
