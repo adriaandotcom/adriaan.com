@@ -7,7 +7,7 @@ const generateDate = (text: string) => {
   const date = fromZonedTime(text, "Europe/Amsterdam");
   return [
     date.getFullYear(), // Year
-    date.getMonth(), // Month (getMonth returns 0-11, so add 1 to make it 1-12)
+    date.getMonth() + 1, // Month (getMonth returns 0-11, so add 1 to make it 1-12)
     date.getDate(), // Day
     date.getHours(), // Hour
     date.getMinutes(), // Minute
