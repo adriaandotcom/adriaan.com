@@ -23,11 +23,19 @@ const alarms: Alarm[] = [
 export default defineEventHandler(async (event) => {
   const eventObjects = [];
   const productId = "//Yassassin//Yassassin Ouwe Pullen events//EN";
+  const calName = "Yassassin Ouwe Pullen events";
+
+  // Add event "Yassassin Reünistenborrel" on 14 june 2024
+  eventObjects.push({
+    start: [2024, 6, 14, 18, 0] as [number, number, number, number, number],
+    end: [2024, 6, 14, 23, 59] as [number, number, number, number, number],
+    title: "Yassassin Reünistenborrel",
+    description:
+      "Op 14 juni 2024 is het weer tijd voor de jaarlijkse reünistenborrel van Yassassin.\n\nXusje.",
+  });
 
   // Specific event for this year
   eventObjects.push({
-    calName: "Yassassin Ouwe Pullen events",
-    productId,
     start: [2024, 8, 30, 15, 0] as [number, number, number, number, number],
     end: [2024, 9, 1, 12, 0] as [number, number, number, number, number],
     title: "Yassassin Ouwe Pullen weekend 2024",
@@ -38,8 +46,6 @@ export default defineEventHandler(async (event) => {
 
   // Recurring event details
   eventObjects.push({
-    calName: "Yassassin Ouwe Pullen events",
-    productId,
     start: [2025, 5, 23, 15, 0] as [number, number, number, number, number],
     end: [2025, 5, 25, 12, 0] as [number, number, number, number, number],
     title: "Yassassin Ouwe Pullen weekend",
@@ -49,7 +55,15 @@ export default defineEventHandler(async (event) => {
     alarms,
   });
 
-  const { error, value } = createEvents(eventObjects);
+  const { error, value } = createEvents(
+    eventObjects.map((event) => {
+      return {
+        calName,
+        productId,
+        ...event,
+      };
+    })
+  );
 
   if (error) {
     console.error(error);
