@@ -65,9 +65,10 @@ const route = useRoute();
 const defaultFileName = "cal";
 const fileParam = ref(route.query.file || defaultFileName);
 
-const calendarUrl = computed(
-  () => `https://www.adriaan.com/${fileParam.value}.ics`
-);
+const calendarUrl = computed(() => {
+  const sanatizedFileName = fileParam.value.replace(/[^a-z0-9_.-]/gi, "");
+  return `https://www.adriaan.com/${sanatizedFileName}.ics`;
+});
 
 function setCalendarType(type) {
   calendarType.value = type;
