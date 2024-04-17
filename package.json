@@ -10,15 +10,15 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.11.2",
-    "@tailwindcss/typography": "^0.5.10",
+    "@nuxtjs/tailwindcss": "^6.11.4",
+    "@tailwindcss/typography": "^0.5.12",
     "date-fns": "^3.6.0",
     "date-fns-tz": "^3.1.2",
     "ics": "^3.7.2",
-    "nuxt": "^3.9.3",
-    "nuxt-og-image": "^3.0.0-rc.38",
-    "nuxt-schema-org": "^3.3.4",
-    "vue": "^3.4.14",
-    "vue-router": "^4.2.5"
+    "nuxt": "^3.11.2",
+    "nuxt-og-image": "^3.0.0-rc.52",
+    "nuxt-schema-org": "^3.3.6",
+    "vue": "^3.4.23",
+    "vue-router": "^4.3.0"
   }
 }
