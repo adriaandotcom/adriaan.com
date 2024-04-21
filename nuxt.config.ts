@@ -39,7 +39,10 @@ export default defineNuxtConfig({
       ],
       script:
         process.env.NODE_ENV === "production"
-          ? [{ src: "/data.js", async: true, "data-collect-dnt": "true" }]
+          ? [
+              { src: "/data.js", async: true, "data-collect-dnt": "true" },
+              { src: "/auto-events.js", async: true }
+            ]
           : [],
     },
   },
