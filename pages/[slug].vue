@@ -81,7 +81,9 @@ const body = product
     >
       You found my {{ product }}!
     </h1>
-    <h1 class="text-5xl font-display" v-else>Lost and found</h1>
+    <h1 class="text-5xl font-display dark:text-slate-200" v-else>
+      Lost and found
+    </h1>
 
     <p class="mt-8">
       If you found my
