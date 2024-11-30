@@ -29,3 +29,10 @@ useSchemaOrg([
   }),
 ]);
 </script>
+
+<style>
+a,
+a p {
+  @apply text-primary-light dark:text-primary-dark;
+}
+</style>
