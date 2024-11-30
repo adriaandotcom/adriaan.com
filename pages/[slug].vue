@@ -75,7 +75,10 @@ const body = product
   <div
     class="max-w-xl mx-auto px-4 mt-24 mb-10 flex flex-col text-slate-700 text-center"
   >
-    <h1 class="text-5xl font-display" v-if="product">
+    <h1
+      class="text-5xl font-display text-slate-800 dark:text-slate-200"
+      v-if="product"
+    >
       You found my {{ product }}!
     </h1>
     <h1 class="text-5xl font-display" v-else>Lost and found</h1>
@@ -93,7 +96,7 @@ const body = product
       <a
         :href="`https://t.me/adriaandotcom?text=${encodeURIComponent(message)}`"
         target="_blank"
-        class="w-32 hover:bg-blue-700 hover:text-blue-200 bg-blue-200 text-blue-700 rounded-md py-2 flex flex-col justify-center items-center"
+        class="w-32 hover:bg-blue-700 dark:bg-blue-800 hover:text-blue-200 dark:text-blue-200 bg-blue-200 text-blue-700 rounded-md py-2 flex flex-col justify-center items-center"
       >
         <PaperAirplaneIcon class="mt-2 w-12 h-12 stroke-1 stroke-current" />
         <p class="text-current">Telegram</p>
@@ -102,7 +105,7 @@ const body = product
       <a
         :href="`https://wa.me/31640061007?text=${encodeURIComponent(message)}`"
         target="_blank"
-        class="w-32 hover:bg-green-800 hover:text-green-200 bg-green-200 text-green-800 rounded-md py-2 flex flex-col justify-center items-center"
+        class="w-32 hover:bg-green-800 dark:bg-green-900 hover:text-green-200 dark:text-green-200 bg-green-200 text-green-800 rounded-md py-2 flex flex-col justify-center items-center"
       >
         <PhoneIcon class="mt-2 w-12 h-12 stroke-1 stroke-current" />
         <p class="text-current">WhatsApp</p>
@@ -112,14 +115,14 @@ const body = product
         :href="`mailto:lostandfound@adriaan.com?subject=${encodeURIComponent(
           subject
         )}&body=${encodeURIComponent(body)}`"
-        class="w-32 hover:bg-slate-800 hover:text-slate-200 bg-slate-200 text-slate-800 rounded-md py-2 flex flex-col justify-center items-center"
+        class="w-32 hover:bg-slate-800 dark:bg-slate-700 hover:text-slate-200 dark:text-slate-200 bg-slate-200 text-slate-800 rounded-md py-2 flex flex-col justify-center items-center"
       >
         <EnvelopeIcon class="mt-2 w-12 h-12 stroke-1 stroke-current" />
         <p class="text-current">Email</p>
       </a>
     </div>
 
-    <p class="mt-8">Thanks!</p>
-    <Adriaan class="mt-6 mx-auto w-[120px] stroke-2 fill-none" />
+    <p class="mt-8">Thanks,</p>
+    <Adriaan class="mt-2 mx-auto w-[120px] stroke-2 fill-none" />
   </div>
 </template>
