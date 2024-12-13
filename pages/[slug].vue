@@ -49,14 +49,34 @@ const products = [
   { code: "tfnky", product: "Generic Cable 1m" },
   { code: "kajhr", product: "Apple Charger" },
   { code: "djkas", product: "Logitech Mouse MX Ergo" },
-  { code: "mmaps", product: "Rains Bag" },
+  {
+    code: "mmaps",
+    product: "Rains Hilo Weekend Bag",
+    color: "Dune (beige)",
+    bought: "2024-05-24",
+    description: "Hilo Weekend Bag Small W3",
+    url: "https://www.rains.com/collections/bags/products/weekend-bag?variant=48723504071003",
+    archive:
+      "https://web.archive.org/web/20241213113257/https://www.rains.com/collections/bags/products/weekend-bag?variant=48723504071003",
+    price: "€70",
+  },
   { code: "wmjay", product: "Bose Headphones" },
   { code: "xazjz", product: "MacBook M1 Pro 14-Inch 2021" },
   { code: "drxmj", product: "MacBook M1 Pro 14-Inch 2021" },
   { code: "wdnnx", product: "Apple 60W Charger" },
   { code: "nrtnk", product: "Apple iPhone 12 RED" },
   { code: "bwbah", product: "Apple Keyboard" },
-  { code: "pwmfz", product: "Lightning to USB-A Cable" },
+  { code: "pwmfz", product: "Apple Lightning to USB-A Cable" },
+  {
+    code: "ymwyk",
+    product: "Apple AirPods 4",
+    price: "€199",
+    bought: "2024-12-03",
+    description: "With active noise cancellation",
+    url: "https://www.apple.com/airpods-4/",
+    archive:
+      "https://web.archive.org/web/20241212100546/https://www.apple.com/airpods-4/",
+  },
 ];
 
 const product = products.find((p) => p.code === slug)?.product;
