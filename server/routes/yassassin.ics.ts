@@ -51,6 +51,16 @@ export default defineEventHandler(async (event) => {
     alarms,
   });
 
+  // Recurring event: Friday before Christmas every year
+  eventObjects.push({
+    start: generateDate("2024-12-20 18:00:00"),
+    end: generateDate("2024-12-20 23:00:00"),
+    title: "Yassassin Kerstdiner",
+    description: "Jaarlijks kerstdiner op de vrijdag voor kerst.\n\nXusje.",
+    recurrenceRule:
+      "FREQ=YEARLY;BYMONTH=12;BYDAY=FR;BYMONTHDAY=18,19,20,21,22,23,24",
+  });
+
   const { error, value } = createEvents(
     eventObjects.map((event) => {
       return {
