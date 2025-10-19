@@ -61,6 +61,14 @@ export default defineEventHandler(async (event) => {
       "FREQ=YEARLY;BYMONTH=12;BYDAY=FR;BYMONTHDAY=18,19,20,21,22,23,24",
   });
 
+  // Specific event: Plusminus weekend 2026
+  eventObjects.push({
+    start: generateDate("2026-04-17 15:00:00"),
+    end: generateDate("2026-04-19 16:00:00"),
+    title: "Plusminus weekend",
+    description: "Plusminus weekend in april 2026.\n\nXusje.",
+  });
+
   const { error, value } = createEvents(
     eventObjects.map((event) => {
       return {
