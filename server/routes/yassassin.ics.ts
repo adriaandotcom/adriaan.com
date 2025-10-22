@@ -24,7 +24,7 @@ const alarms: Alarm[] = [
 export default defineEventHandler(async (event) => {
   const eventObjects = [];
   const productId = "//Yassassin//Yassassin Ouwe Pullen events//EN";
-  const calName = "Yassassin Ouwe Pullen events";
+  const calName = "Yassassin Ouwe Pullen";
 
   // Import Reunistenborrel events from the Leden agenda
   const icsUrl =
