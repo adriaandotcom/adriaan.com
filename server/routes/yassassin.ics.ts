@@ -3,12 +3,9 @@ import { format } from "date-fns";
 import { Alarm, createEvents } from "ics";
 import { generateDate } from "~/utils/dates";
 import {
-  extractVEvents,
+  importEventsFromIcsUrl,
   isReunistenEvent,
   cleanupReunistenSummary,
-  parseVEvent,
-  toAmsterdamDateTimeStrings,
-  unfoldIcs,
 } from "~/utils/ics";
 
 const alarms: Alarm[] = [
@@ -29,40 +26,25 @@ export default defineEventHandler(async (event) => {
   const productId = "//Yassassin//Yassassin Ouwe Pullen events//EN";
   const calName = "Yassassin Ouwe Pullen events";
 
-  // Import matching events from Google ICS (all historical + future)
-  try {
-    const icsUrl =
-      "https://calendar.google.com/calendar/ical/bestuur%40yassassin.nl/public/basic.ics";
-    const res = await fetch(icsUrl);
-    if (res.ok) {
-      const raw = await res.text();
-      const unfolded = unfoldIcs(raw);
-      const vevents = extractVEvents(unfolded);
-      for (const ve of vevents) {
-        const parsed = parseVEvent(ve);
-        if (!parsed) continue;
-        if (!isReunistenEvent(parsed.summary)) continue;
+  // Import Reunistenborrel events from the Leden agenda
+  const icsUrl =
+    "https://calendar.google.com/calendar/ical/bestuur%40yassassin.nl/public/basic.ics";
+  const importedEvents = await importEventsFromIcsUrl(icsUrl);
 
-        const times = toAmsterdamDateTimeStrings(parsed);
-        if (!times) continue;
+  for (const event of importedEvents) {
+    if (!isReunistenEvent(event.title)) continue;
 
-        const appendText = `Dit event is automatisch geïmporteerd van de Yassassin Google Calendar die door de leden wordt gebruikt. Dit kan natuurlijk fouten bevatten.\n\nXusje.`;
-        const description = parsed.description
-          ? `${parsed.description}\n\n---\n\n${appendText}`
-          : appendText;
+    const appendText = `Dit event is automatisch geïmporteerd van de Yassassin Google Calendar die door de leden wordt gebruikt. Dit kan natuurlijk fouten bevatten.\n\nXusje.`;
+    const description = event.description
+      ? `${event.description}\n\n---\n\n${appendText}`
+      : appendText;
 
-        eventObjects.push({
-          start: generateDate(times.startText),
-          end: generateDate(times.endText),
-          title: cleanupReunistenSummary(parsed.summary),
-          description,
-        });
-      }
-    } else {
-      console.error(`Failed to fetch ICS: ${res.status} ${res.statusText}`);
-    }
-  } catch (err) {
-    console.error("ICS import error", err);
+    eventObjects.push({
+      start: generateDate(event.start),
+      end: generateDate(event.end),
+      title: cleanupReunistenSummary(event.title),
+      description,
+    });
   }
 
   // Add event "Yassassin Reünistenborrel" on 14 june 2024

@@ -133,3 +133,43 @@ export const toAmsterdamDateTimeStrings = (
     : "";
   return { startText, endText };
 };
+
+export const importEventsFromIcsUrl = async (icsUrl: string) => {
+  const events: Array<{
+    start: string;
+    end: string;
+    title: string;
+    description: string;
+  }> = [];
+
+  try {
+    const res = await fetch(icsUrl);
+    if (!res.ok) {
+      console.error(`Failed to fetch ICS: ${res.status} ${res.statusText}`);
+      return events;
+    }
+
+    const raw = await res.text();
+    const unfolded = unfoldIcs(raw);
+    const vevents = extractVEvents(unfolded);
+
+    for (const ve of vevents) {
+      const parsed = parseVEvent(ve);
+      if (!parsed) continue;
+
+      const times = toAmsterdamDateTimeStrings(parsed);
+      if (!times) continue;
+
+      events.push({
+        start: times.startText,
+        end: times.endText,
+        title: parsed.summary,
+        description: parsed.description || "",
+      });
+    }
+  } catch (err) {
+    console.error("ICS import error", err);
+  }
+
+  return events;
+};
