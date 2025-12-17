@@ -77,6 +77,16 @@ export default defineEventHandler(async (event) => {
     alarms,
   });
 
+  // Specific event: Yassassin Kerstdiner 2025
+  eventObjects.push({
+    start: generateDate("2025-12-19 19:00:00"),
+    end: generateDate("2025-12-19 23:59:00"),
+    title: "Yassassin Kerstdiner @ NENI",
+    description:
+      "Jaarlijks kerstdiner op de vrijdag voor kerst.\n\nLocatie: NENI Amsterdam\nAdres: Stadionplein 8, 1076 CM Amsterdam, Netherlands\n\nXusje.",
+    location: "NENI Amsterdam, Stadionplein 8, 1076 CM Amsterdam, Netherlands",
+  });
+
   // Recurring event: Friday before Christmas every year
   eventObjects.push({
     start: generateDate("2024-12-20 18:00:00"),
@@ -85,6 +95,7 @@ export default defineEventHandler(async (event) => {
     description: "Jaarlijks kerstdiner op de vrijdag voor kerst.\n\nXusje.",
     recurrenceRule:
       "FREQ=YEARLY;BYMONTH=12;BYDAY=FR;BYMONTHDAY=18,19,20,21,22,23,24",
+    exdate: [generateDate("2025-12-19 18:00:00")],
   });
 
   // Specific event: Plusminus weekend 2026
