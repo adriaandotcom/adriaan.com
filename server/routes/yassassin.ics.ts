@@ -95,8 +95,8 @@ export default defineEventHandler(async (event) => {
     description: "Jaarlijks kerstdiner op de vrijdag voor kerst.\n\nXusje.",
     recurrenceRule:
       "FREQ=YEARLY;BYMONTH=12;BYDAY=FR;BYMONTHDAY=18,19,20,21,22,23,24",
-    exdate: [generateDate("2025-12-19 18:00:00")],
-  });
+    exclusionDates: [generateDate("2025-12-19 18:00:00")] as any,
+  } as any);
 
   // Specific event: Plusminus weekend 2026
   eventObjects.push({
