@@ -116,7 +116,7 @@ export default defineEventHandler(async (event) => {
     start: generateDate("2026-03-06 17:00:00"),
     end: generateDate("2026-03-06 23:59:00"),
     title: "Vrijdagmiddagborrel",
-    description: "Vrijdagmiddagborrel op 6 maart 2026.\n\nXusje.",
+    description: "Vrijdagmiddagborrel op 6 maart 2026.\n\nXusje van Nico.",
   });
 
   // Recurring event: Yassassin jubileum (19 september 1987)
