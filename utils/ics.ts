@@ -52,21 +52,23 @@ export const normalizeSummary = (summary: string) =>
 
 export const isReunistenEvent = (summary: string) => {
   const s = normalizeSummary(summary);
-  return s.includes("reunist");
+  // Match "reunist" and common typos like "reünsiten" (reunsit)
+  return s.includes("reunist") || s.includes("reunsit");
 };
 
 export const isReunistenBorrel = (summary: string): boolean => {
   const normalizedSummary = normalizeSummary(summary);
-  return /reunist(.*)borrel/i.test(normalizedSummary);
+  return (
+    /reunist(.*)borrel/i.test(normalizedSummary) ||
+    /reunsit(.*)borrel/i.test(normalizedSummary)
+  );
 };
 
 export const cleanupReunistenSummary = (summary: string): string => {
-  return isReunistenBorrel(summary)
+  const base = isReunistenBorrel(summary)
     ? "Reünistenborrel"
-    : `${summary.charAt(0).toUpperCase()}${summary.slice(1)}`.replace(
-        /eunist/g,
-        "eünist"
-      );
+    : `${summary.charAt(0).toUpperCase()}${summary.slice(1)}`;
+  return base.replace(/eunist/g, "eünist").replace(/eünsit/g, "eünist");
 };
 
 const getProp = (lines: string[], prop: string) => {
