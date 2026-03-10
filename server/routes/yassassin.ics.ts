@@ -66,6 +66,16 @@ export default defineEventHandler(async (event) => {
     alarms,
   });
 
+  // Specific event for 2026 (different weekend date)
+  eventObjects.push({
+    start: generateDate("2026-06-05 15:00:00"),
+    end: generateDate("2026-06-07 12:00:00"),
+    title: "Yassassin Ouwe Pullen weekend 2026",
+    description:
+      "Dit is het Ouwe pullen weekend voor 2026.\n\nDit jaar vindt het plaats van 5 t/m 7 juni.\n\nXusje.",
+    alarms,
+  });
+
   // Recurring event details
   eventObjects.push({
     start: generateDate("2025-05-23 15:00:00"),
@@ -74,6 +84,7 @@ export default defineEventHandler(async (event) => {
     description:
       "Dit is het Ouwe pullen weekend wat elk jaar op de 4e vrijdag van de maand mei staat gepland.\n\nOm te voorkomen dat we elk jaar onduidelijkheid hebben over de datum.\n\nEn het is okay, je mag een jaartje mislopen. En de verjaardag van je moeder is niet elk jaar even belangrijk.\n\nXusje.",
     recurrenceRule: "FREQ=YEARLY;BYSETPOS=4;BYDAY=FR;BYMONTH=5",
+    exclusionDates: [generateDate("2026-05-22 15:00:00")],
     alarms,
   });
 
