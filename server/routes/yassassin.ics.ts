@@ -97,8 +97,8 @@ export default defineEventHandler(async (event) => {
       "Jaarlijks kerstdiner op de vrijdag voor kerst.\n\nLocatie: NENI Amsterdam\nAdres: Stadionplein 8, 1076 CM Amsterdam, Netherlands\n\nXusje.",
     location: "NENI Amsterdam, Stadionplein 8, 1076 CM Amsterdam, Netherlands",
     geo: {
-      latitude: 52.34434759,
-      longitude: 4.85615377,
+      lat: 52.34434759,
+      lon: 4.85615377,
     },
     url: "https://neni-amsterdam.nl/",
   });
