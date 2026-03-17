@@ -42,7 +42,9 @@ export default defineEventHandler(async (event) => {
     eventObjects.push({
       start: generateDate(event.start),
       end: generateDate(event.end),
-      title: cleanupReunistenSummary(event.title),
+      title:
+        cleanupReunistenSummary(event.title) +
+        " (geïmporteerd uit leden agenda)",
       description,
     });
   }
@@ -54,6 +56,15 @@ export default defineEventHandler(async (event) => {
     title: "Yassassin Reünistenborrel",
     description:
       "Op 14 juni 2024 is het weer tijd voor de jaarlijkse reünistenborrel van Yassassin.\n\nXusje.",
+  });
+
+  // Add event "Yassassin Reünistenborrel" on 12 june 2026
+  eventObjects.push({
+    start: generateDate("2026-06-12 18:00:00"),
+    end: generateDate("2026-06-13 03:00:00"),
+    title: "Yassassin Reünistenborrel",
+    description:
+      "Op 12 juni 2026 is het weer tijd voor de jaarlijkse reünistenborrel van Yassassin.\n\nXusje.",
   });
 
   // Specific event for this year
