@@ -133,6 +133,14 @@ export default defineEventHandler(async (event) => {
     description: "Plusminus weekend in april 2026.\n\nXusje.",
   });
 
+  // Specific event: SSRA Reünistenborrel 2026
+  eventObjects.push({
+    start: generateDate("2026-04-10 18:00:00"),
+    end: generateDate("2026-04-11 03:00:00"),
+    title: "SSRA Reünistenborrel",
+    description: "SSRA Reünistenborrel op 10 april 2026.\n\nXusje.",
+  });
+
   // Specific event: Vrijdagmiddagborrel 2026
   eventObjects.push({
     start: generateDate("2026-03-06 17:00:00"),
