@@ -17,6 +17,7 @@ export default defineEventHandler(async (event) => {
 
   for (let i = 0; i < yearsToGenerate; i++) {
     const year = startDate.getFullYear() + i;
+    if (year >= 2026) continue;
     let eventDate = new Date(year, birthday.getMonth(), birthday.getDate());
     if (eventDate.getDay() !== 6) eventDate = getNextSaturday(eventDate);
 
