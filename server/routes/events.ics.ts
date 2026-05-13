@@ -68,11 +68,24 @@ export default defineEventHandler(async (event) => {
     });
   }
 
+  // Specific event: Adriaan's feestje on Friday 26 June 2026
+  eventObjects.push({
+    start: generateDate("2026-06-26 17:00:00"),
+    end: generateDate("2026-06-26 23:59:00"),
+    title: "Adriaan's feestje",
+    uid: "adriaan-feestje-2026",
+    description: "Eerste feestje op de Curacaostraat!\n\nXusje.",
+    location: "Curaçaostraat 35 H, 1058 BL, Amsterdam",
+    productId,
+    url: "https://www.adriaan.com",
+    calName: "Adriaan's Events",
+  });
+
   // Add a recurring event for my birthday on 19 june
   eventObjects.push({
     start: [1989, 6, 19] as [number, number, number],
     end: [1989, 6, 19] as [number, number, number],
-    title: "Adriaan's verjaardag",
+    title: "Adriaan jarig",
     uid: "adriaan-birthday",
     description: "Vandaag is Adriaan jarig.",
     productId,
