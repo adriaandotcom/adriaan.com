@@ -29,6 +29,10 @@ defineOgImageComponent("BlogPost");
   @apply prose-p:text-slate-600 dark:prose-p:text-[#f2f2f0] prose-p:leading-loose prose-p:text-lg prose-p:font-body dark:prose-p:font-body
   prose-p:tracking-wide;
 
+  /* prose lists */
+  @apply prose-li:text-slate-600 dark:prose-li:text-[#f2f2f0] prose-li:leading-loose prose-li:text-lg prose-li:font-body dark:prose-li:font-body
+  prose-li:tracking-wide;
+
   /* prose headings */
   @apply prose-headings:font-display dark:prose-headings:font-display prose-headings:leading-relaxed;
 
