@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "validate:ics": "node scripts/validate-ics.mjs"
   },
   "devDependencies": {
     "@heroicons/vue": "^2.2.0",
@@ -15,6 +16,7 @@
     "@tailwindcss/typography": "^0.5.12",
     "date-fns": "^3.6.0",
     "date-fns-tz": "^3.1.2",
+    "ical.js": "^2.2.1",
     "ics": "^3.7.2",
     "nuxt": "^3.11.2",
     "nuxt-og-image": "^3.0.0-rc.52",
