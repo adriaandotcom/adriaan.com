@@ -149,6 +149,14 @@ export default defineEventHandler(async (event) => {
     description: "Vrijdagmiddagborrel op 6 maart 2026.\n\nXusje van Nico.",
   });
 
+  // Specific event: Yassassin borrel 2026
+  eventObjects.push({
+    start: generateDate("2026-09-19 15:00:00"),
+    end: generateDate("2026-09-19 20:00:00"),
+    title: "Yassassin borrel",
+    description: "Yassassin borrel op 19 september 2026.\n\nXusje.",
+  });
+
   // Recurring event: Yassassin jubileum (19 september 1987)
   eventObjects.push({
     start: generateDate("1987-09-19", true),
