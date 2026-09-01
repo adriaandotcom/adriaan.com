@@ -4,10 +4,10 @@ import { createEvents } from "ics";
 import { generateDate } from "~/utils/dates";
 
 const happyHardwareEvents = [
-  { edition: 4, date: "2026-03-29", endTime: "18:00:00" },
-  { edition: 5, date: "2026-04-26", endTime: "18:00:00" },
-  { edition: 6, date: "2026-06-28", endTime: "17:00:00" },
-  { edition: 7, date: "2026-09-30", endTime: "17:00:00" },
+  { edition: 1, date: "2026-03-29", endTime: "18:00:00" },
+  { edition: 2, date: "2026-04-26", endTime: "18:00:00" },
+  { edition: 3, date: "2026-06-28", endTime: "17:00:00" },
+  { edition: 4, date: "2026-09-20", endTime: "17:00:00" },
 ];
 
 const ordinal = (number: number) => {
