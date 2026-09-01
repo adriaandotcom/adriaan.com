@@ -9,6 +9,12 @@ const baseUrl = `http://${host}:${port}`;
 const feeds = [
   { name: "Adriaan", path: "/events.ics" },
   { name: "Yassassin", path: "/yassassin.ics" },
+  {
+    name: "Happy Hardware",
+    path: "/happyhardware.ics",
+    expectedEventCount: 4,
+    disallowRecurrence: true,
+  },
 ];
 
 const server = spawn(process.execPath, [".output/server/index.mjs"], {
@@ -44,7 +50,12 @@ const waitForServer = async () => {
   throw new Error(`Server did not start in time:\n${serverOutput}`);
 };
 
-const validateFeed = async ({ name, path }) => {
+const validateFeed = async ({
+  name,
+  path,
+  expectedEventCount,
+  disallowRecurrence,
+}) => {
   const response = await fetch(`${baseUrl}${path}`, {
     signal: AbortSignal.timeout(30_000),
   });
@@ -73,6 +84,13 @@ const validateFeed = async ({ name, path }) => {
 
   const components = calendar.getAllSubcomponents("vevent");
   assert.ok(components.length > 0, `${name} feed should contain events`);
+  if (expectedEventCount !== undefined) {
+    assert.equal(
+      components.length,
+      expectedEventCount,
+      `${name} feed should contain ${expectedEventCount} events`
+    );
+  }
 
   const uids = new Set();
   for (const component of components) {
@@ -86,6 +104,13 @@ const validateFeed = async ({ name, path }) => {
 
     assert.ok(component.getFirstProperty("dtstamp"), `${prefix} needs DTSTAMP`);
     assert.ok(component.getFirstProperty("dtstart"), `${prefix} needs DTSTART`);
+    if (disallowRecurrence) {
+      assert.equal(
+        component.getFirstProperty("rrule"),
+        null,
+        `${prefix} should not repeat`
+      );
+    }
 
     const event = new ICAL.Event(component);
     assert.ok(event.startDate, `${prefix} should have a valid start date`);
