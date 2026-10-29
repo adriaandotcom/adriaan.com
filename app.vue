@@ -1,7 +1,13 @@
 <template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+  <div>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+
+    <footer class="flex justify-center px-4 pt-4 pb-10">
+      <SimpleAnalyticsBadge />
+    </footer>
+  </div>
 </template>
 
 <script setup>
