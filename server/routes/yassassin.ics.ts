@@ -116,10 +116,12 @@ export default defineEventHandler(async (event) => {
 
   // Specific event: Yassassin Kerstdiner 2026
   eventObjects.push({
-    start: generateDate("2026-12-11 18:00:00"),
-    end: generateDate("2026-12-11 23:00:00"),
-    title: "Yassassin Kerstdiner",
-    description: "Dit jaar is het kerstdiner op vrijdag 11 december.\n\nXusje.",
+    start: generateDate("2026-12-11 18:30:00"),
+    end: generateDate("2026-12-11 23:59:00"),
+    title: "Yassassin Kerstdiner @ Canvas",
+    description:
+      "Het kerstdiner van 2026 is op vrijdag 11 december om 18.30 in Canvas op de 7e. Na het eten komt een dj ons verder vermaken, dus voetjes van de vloer. 🍷🍾🍽️💃🏼🕺🏼\n\nReageer met een 🎄 op het uitnodigingsbericht als je er definitief bij bent. Geef allergieën en zwangerschappen vóór december door aan de organisator.\n\nLocatie: Canvas, 7e verdieping\nAdres: Wibautstraat 150, 1091 GR Amsterdam, Netherlands\n\nXusje.",
+    location: "Canvas, Wibautstraat 150, 1091 GR Amsterdam, Netherlands",
   });
 
   // Recurring event: Friday before Christmas every year
